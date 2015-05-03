@@ -16,7 +16,7 @@ public class test
 				System.out.printf("\t%d",raf.readInt());
 			}
 			raf.close();
-		}
+		} 
 		catch(IOException e) {System.out.println(e);}
 	}
 }

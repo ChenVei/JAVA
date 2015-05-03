@@ -15,7 +15,6 @@ public class test
 		for (int i=0;i<10 ;i++ ) {
 			System.out.print(i);
 		}
-
 		System.out.println();
 		Runner2 r1,r2;
 		r1=new Runner2("r1:");

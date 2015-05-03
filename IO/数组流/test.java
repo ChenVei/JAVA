@@ -13,6 +13,7 @@ public class test
 
 		CharArrayWriter caw=new CharArrayWriter();
 		char[] c="中秋快乐".toCharArray();
+		caw.write(c);
 		CharArrayReader car=new CharArrayReader(caw.toCharArray());
 		char[] c1=new char[caw.toCharArray().length];
 		car.read(c1);

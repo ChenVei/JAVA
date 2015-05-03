@@ -10,7 +10,8 @@ public class test
 			dos.writeFloat(123.456f);
 			dos.writeDouble(123456.456321);
 			dos.writeBoolean(true);
-			dos.writeChars("How do you do?");
+			/*dos.writeChars("How do you do?");*/
+			dos.writeUTF("HOW OLD ARE YOU?");
 			FileInputStream fis=new FileInputStream("test.txt");
 			DataInputStream dis=new DataInputStream(fis);
 			System.out.println(dis.readInt());
@@ -19,8 +20,9 @@ public class test
 			System.out.println(dis.readDouble());
 			System.out.println(dis.readBoolean());
 			char c='\0';
-			while((c=dis.readChar())!='\0')
-				System.out.print(c);
+			/*while((c=dis.readChar())!='\0')
+				System.out.print(c);*/
+			System.out.println(dis.readUTF());
 		}
 		catch(IOException e) {System.out.println(e);}
 	}

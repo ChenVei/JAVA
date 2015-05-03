@@ -38,5 +38,5 @@ implements Serializable
 	int c=6;
 	transient double d=7.6;
 	public String toString()
-	{return (a+" "+" "+b+" "+c+" "+d);}
+	{return (a+" "+b+" "+c+" "+d);}
 }

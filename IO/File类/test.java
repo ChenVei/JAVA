@@ -1,8 +1,6 @@
 import java.io.*;
-import java.util.regex.*;
 public class test
 {
-
 	public static void main(String[] args)
 	{
 		File f=new File("d:/java");	
@@ -15,7 +13,7 @@ public class test
 			try{
 				f.createNewFile();  //in sourse file.like test.java
 			}
-			catch(IOException e){System.out.println("SUCCESS.");}
+			catch(IOException e){System.out.println("Fail!");}
 		}
 	}
 }

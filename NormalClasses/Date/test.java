@@ -1,50 +1,36 @@
-import java.io.*;
-public class test
-{
-	public static void main(String[] args)
-	{
-		Date[]days=new Date[5];
-		days[0]=new Date(2006,5,4);
-		days[1]=new Date(2006,7,4);
-		days[2]=new Date(2008,5,4);
-		days[3]=new Date(2004,5,9);
-		days[4]=new Date(2004,5,4);
-		sort(days);
-		for (int i=0;i < days.length ;i++ ) {
-			System.out.println(days[i]);
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
+public class Test {
+	public static void main(String[] args) throws ParseException {
+		System.out.println("xxxx");
+		System.out.println("xxxx1");
+		Date d = new Date();
+		System.out.println(d);
+		System.out.println(new Date(3600*1000));
+		
+		SimpleDateFormat sdf = new SimpleDateFormat();
+		System.out.println(sdf.format(d));
+		sdf = new SimpleDateFormat("y年, M月, d日 H:m:s");
+		System.out.println(sdf.format(d));
+		String str = "2005年, 21月, 20日 15:24:51";
+		Date dd = sdf.parse(str);
+		System.out.println(dd);
+		
+		
+		long t=System.currentTimeMillis();
+		System.out.println(t);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
 		}
-	}
-	public static Date[] sort(Date[] d)
-	{
-		int len=d.length;
-		int i=1;
-		while(i<len)
-		{
-			int k=i++;
-			while(k>0 && d[k-1].compare(d[k])==1)
-			{
-					Date t=d[k];
-					d[k]=d[k-1];
-					d[k-1]=t;
-					k--;
-			}
-		}
-		return d;
+		System.out.println((System.currentTimeMillis()-t)/1000);
+		System.out.println(d);  //and once it set, it won't move
 	}
 }
-class Date
-{
-	int year,month,day;
-	Date(int y,int m,int d)
-	{
-		year=y;month=m;day=d;
-	}
-	public int compare(Date date)
-	{
-		return year>date.year?1:year<date.year?-1:month>date.month?1:month<date.month?-1:day>date.day?1:day<date.day?-1:0;
-	}
-	public String toString()
-	{
-		return "Year-Month-Day:"+year+"-"+month+"-"+day;
-	}
-}
+
+

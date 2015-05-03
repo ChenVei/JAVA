@@ -1,10 +1,8 @@
 
 public class test
 {
-
 	public static void main(String[] args)
 	{
-		
 		Runner1 rr=new Runner1();
 		rr.start();
 		try{Thread.sleep(10000);}
@@ -24,6 +22,5 @@ class Runner1 extends Thread
 			catch(InterruptedException e)
 			{System.out.println("I was Interrupted!!");return;}
 		}
-		
 	}
 }
