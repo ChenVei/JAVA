@@ -10,10 +10,10 @@ public class Test {
 		
 		Set<Student> set2 = new HashSet<Student>();
 		Student s1 = new Student("ws", 10);Student s2 = new Student("lw", 20);Student s3 = new Student("hq", 19);
-		Student s4 = new Student("ws", 18);Student s5 = new Student("ws", 20);Student s6 = new Student("ws", 10);
-		set2.add(s1);set2.add(s2);set2.add(s3);set2.add(s4);set2.add(s5);set2.add(s6);
+		Student s4 = new Student("ws", 18);Student s5 = new Student("ws", 10);
+		set2.add(s1);set2.add(s2);set2.add(s3);set2.add(s4);set2.add(s5);
 		for (Student s : set2) {
-			System.out.println(s.getName());
+			System.out.println(s);
 		}
 	}
 }
@@ -55,7 +55,7 @@ class Student {
 //		return name.equals(stu.name) && age == stu.age;
 //	}
 	@Override
-	public int hashCode() {
+	public int hashCode() {  //先比哈希码，相同再比equals，为提高效率
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + age;
@@ -80,6 +80,11 @@ class Student {
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "[name=" + name + ", age=" + age + "]";
+	}
+	
 }
 
 

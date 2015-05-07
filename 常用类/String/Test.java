@@ -15,15 +15,6 @@ public class Test {
 		change(ss1,ss2);
 		System.out.println(ss1+"----"+ss2);
 		
-		Person p1 = new Person(10, "lw"), p2 = new Person(20, "ws");
-		try {
-			p2.finalize();
-		} catch (Throwable e) {
-			// TODO 自动生成的 catch 块
-			e.printStackTrace();
-		}
-		System.out.println(p1+"---"+p2);
-		System.gc();
 	}
 
 	private static void change(StringBuilder s1, StringBuilder s2) {
@@ -36,33 +27,6 @@ public class Test {
 		s2 = s1 + s2;
 	}
 }
-
-
-class Person {
-	/**
-	 * @param age
-	 * @param name
-	 */
-	public Person(int age, String name) {
-		super();
-		this.age = age;
-		this.name = name;
-	}
-	int age = 10;
-	String name = "ws";
-	@Override
-	protected void finalize() throws Throwable {
-		System.out.println(this+" was killed");
-		super.finalize();
-	}
-	@Override
-	public String toString() {
-		return "Person [age=" + age + ", name=" + name + "]";
-	}
-	
-}
-
-
 
 
 

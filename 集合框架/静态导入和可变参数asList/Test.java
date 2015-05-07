@@ -15,7 +15,7 @@ public class Test {
 			System.out.println(s);
 		}
 //		li.add("xxx");
-//		LI.REMOVE(1);
+//		li.REMOVE(1);
 		li.set(2, "xxx");
 	}
 

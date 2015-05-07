@@ -10,26 +10,34 @@ public class Test {
 		c.remove("Bye");c.remove("wye");
 		System.out.println(c.contains("hoha"));
 		System.out.println("c:"+c+" Length:"+c.size());
-		c.clear();
+		c.clear();  //empty
 		
 		Collection c1 = new ArrayList();
 		for (int i = 0; i < 4; i++) c.add("abc"+i);
 		for (int i = 3; i < 7; i++) c1.add("abc"+i);
-//		System.out.println(c.addAll(c1));
-//		System.out.println(c.removeAll(c1));
-		System.out.println(c.retainAll(c1));
-		System.out.println(c+"\n"+c1);
+		System.out.println("----------");
+		System.out.println(c);
+		System.out.println(c1);
 		
-		Object[] objs = c1.toArray();
+//		System.out.println(c.addAll(c1));  //求并集
+//		System.out.println(c);
+		
+//		System.out.println(c.removeAll(c1));  //求差集
+//		System.out.println(c);
+		
+//		System.out.println(c.retainAll(c1));  //求交集
+//		System.out.println(c+"\n"+c1);
+		
+		Object[] objs = c1.toArray();  //两种遍历
 		for (int i = 0; i < objs.length; i++) {
 			String s = (String)objs[i];
 			System.out.println(s+"---"+s.length());
 		}
+		
 		Iterator it = c1.iterator();
 		while (it.hasNext()) {
 			String s = (String)it.next();
 			System.out.println(s);
 		}
-		
 	}
 }

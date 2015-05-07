@@ -54,10 +54,8 @@ class InterIm2<T> implements Inter<T> {  //Î´ÖªÀà
 
 	@Override
 	public void show(T t) {
-		System.out.println(t);
-		
+		System.out.println(t);	
 	}
-	
 }
 
 
