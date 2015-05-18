@@ -1,6 +1,6 @@
 select ename, sal/12 "Daily Salary" from emp;  //日薪，别名
 
-select ename||'--'||sal from emp; //字符串连接，两个'表示一个
+select ename||'--'||sal from emp; //字符串连接，''表示一个
 
 select distinct deptno from emp;  //去重
 
@@ -14,9 +14,6 @@ select ename, sal,comm from emp where comm is null; //is not
 select sal from emp where in (800, 1500, 5000);
 
 select hiredate from emp where hiredate > '20-2月 -81'；
-
-
-
 
 select ename from emp where ename like '%AR%';
 select ename from emp where ename like '_A%';

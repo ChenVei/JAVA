@@ -8,10 +8,10 @@ show user //查看当前用户
 	select username from dba_users
 
 	desc dba_tablespaces
-	select tablespace_name form dba_tablespaces
+	select tablespace_name from dba_tablespaces
 
 	desc user_tablespaces
-	select tablespace_name form user_tablespaces
+	select tablespace_name from user_tablespaces
 
 	desc emp   		//雇员表 在scott里 
 	desc dept  		//部门表

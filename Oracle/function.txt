@@ -21,6 +21,22 @@
 
   select max(sal),deptno,job from emp group by deptno, job;
 
-  //选出工资最多人姓名 按部门
+  //选出工资最多的人姓名 按部门
    select ename, deptno, sal from emp
-   where sal in (select max(sal) from emp group by deptno)  order by deptno;
+   where sal in (select max(sal) from emp group by deptno)  order by deptno;  //用in是错误的，会有重复值被选入
+
+
+ select avg(sal), deptno from emp group by deptno having avg(sal)>2000;
+
+ 执行顺序：
+ 1. select * from emp
+ 2. where sal > 1000
+ 3. group by deptno
+ 4. having
+ 5. order by
+
+select deptno, avg(sal) from emp
+where sal > 1200
+group by deptno
+having avg(sal) > 1500
+order by avg(sal) desc;
