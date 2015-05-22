@@ -1,0 +1,11 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+		System.out.println(String.class.getClassLoader());
+	}
+
+}
+//BootStrap ClassLoader 根类加载器et.jar
+//Extension ClassLoader 扩展类加载器ext
+//System ClassLoader 系统类加载器

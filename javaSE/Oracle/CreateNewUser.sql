@@ -8,7 +8,6 @@
 
 //备份
 create table emp2 as select * from emp;
-
 create table dept2 as select * from dept;
 create table salgrade2 as select * from salgrade;
 create table emp3 as select * from emp;
@@ -37,7 +36,7 @@ select ename, sal, r from
 where r between 6 and 10;
 
 //更新
-update emp2 set sal = sal*2, ename = ename||'-'
+update emp2 set sal = sal*2, ename = ename||'****'
 	where deptno = 10;
 //删除
 delete from emp2 where deptno <= 20;
@@ -45,4 +44,4 @@ delete from emp2 where deptno <= 20;
 
 //一个 transaction(事务) 起始于一条 dml(update,insert,delete) 语句，
   结束于commit,ddl(create),dcl(grant),exit语句 (正常状态)
-  断点，宕机 会回滚 (非正常状态)
+  断电，宕机 会回滚 (非正常状态)

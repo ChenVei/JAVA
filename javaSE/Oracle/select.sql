@@ -11,7 +11,7 @@ select sal from emp where sal >= 800 and sal <= 1500;
 
 select ename, sal,comm from emp where comm is null; //is not
 
-select sal from emp where in (800, 1500, 5000);
+select sal from emp where sal in (800, 1500, 5000);
 
 select hiredate from emp where hiredate > '20-2月 -81'；
 

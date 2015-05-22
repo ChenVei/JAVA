@@ -48,7 +48,7 @@ create table stu
 insert into stu(id,name,email) values (null,'a','a');
 insert into stu(id,name,class,email) values (1,'a',100,'a');
 //语法来说，primary含义not null,unique
-//外键约束被参考的字段必须是主键
+//外键约束 被参考的字段 必须是主键
 delete from class where id = 100;
 
 create table class

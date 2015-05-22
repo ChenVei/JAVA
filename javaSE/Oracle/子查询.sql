@@ -2,6 +2,8 @@
 //自连接
 select e1.ename, e2.ename from emp e1, emp e2
 where e1.mgr = e2.empno;
+select e1.ename, e2.ename from emp e1, emp e2, emp e3
+where e1.mgr = e2.empno and e2.mgr = e3.empno;
 
 //1992
 select ename, dname, grade from emp e, dept d, salgrade s

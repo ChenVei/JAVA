@@ -25,8 +25,7 @@
    select ename, deptno, sal from emp
    where sal in (select max(sal) from emp group by deptno)  order by deptno;  //用in是错误的，会有重复值被选入
 
-
- select avg(sal), deptno from emp group by deptno having avg(sal)>2000;
+ select avg(sal) avg_sal, deptno from emp group by deptno having avg(sal)>2000;
 
  执行顺序：
  1. select * from emp
