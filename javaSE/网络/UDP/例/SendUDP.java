@@ -16,7 +16,7 @@ public class SendUDP {
 		String line = null;
 		while ((line=buf.readLine())!=null) {
 			if (line == "886") break;
-			//byte[] b = "Hello Fucking worldßõßõßõ".getBytes();
+			//byte[] b = "Hello Fucking worldæˆ‘æ¥äº†".getBytes();
 			byte[] b = line.getBytes();
 			InetAddress ia = InetAddress.getByName("localhost");
 			DatagramPacket dp = new DatagramPacket(b, b.length, ia, 12345);

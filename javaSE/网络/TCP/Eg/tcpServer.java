@@ -24,7 +24,7 @@ public class tcpServer {
 			System.out.println("Content:"+new String(b,0,len));
 			
 			os = s.getOutputStream();
-			os.write("°¡¹þThe fuckingworld!!".getBytes());
+			os.write("å•Šå•ŠThe fuckingworld!!".getBytes());
 			
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -14,9 +14,9 @@ public class ServerDemo {
 		
 		InputStream is = s.getInputStream();
 		byte[] b = new byte[1024];
-		int len=is.read(b);
-		System.out.println("From:"+s.getInetAddress().getHostAddress());
-		System.out.println("Content:"+new String(b, 0, len));
+		int len = is.read(b);
+		System.out.println("From:" + s.getInetAddress().getHostAddress());
+		System.out.println("Content:" + new String(b, 0, len));
 		
 		OutputStream os = s.getOutputStream();
 		os.write("数据已收到".getBytes());
@@ -24,5 +24,4 @@ public class ServerDemo {
 		s.close();
 		ss.close();
 	}
-
 }

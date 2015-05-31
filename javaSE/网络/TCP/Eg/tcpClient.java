@@ -26,10 +26,8 @@ public class tcpClient {
 			System.out.println("The server reflects:" + new String(b, 0, len));
 
 		} catch (UnknownHostException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		} finally {
 			try {
@@ -37,11 +35,8 @@ public class tcpClient {
 				is.close();
 				s.close();
 			} catch (IOException e) {
-				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
 		}
-
 	}
-
 }

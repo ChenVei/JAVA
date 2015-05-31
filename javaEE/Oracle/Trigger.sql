@@ -58,7 +58,7 @@ begin
 
 	for v_article in c loop
 		dbms_output.put_line(v_preStr || v_article.cont);
-	if(v_article.isleaf=0) then
+	if(v_article.isleaf=0) then --0表示不是叶子节点
 	 	p(v_article.id, v_level+1);
 	end if;
 	end loop;
