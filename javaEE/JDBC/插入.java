@@ -25,6 +25,7 @@ public class TestDML {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "ws", "ws");
 			stmt = conn.createStatement();
+			
 			String sql = "insert into dept2 values("+deptno+",'"+dname+"','"+loc+"')";
 			System.out.println(sql);
 			stmt.executeUpdate(sql);

@@ -43,3 +43,4 @@ public class TestUpdateRs {
 	}
 }
 //orcale不支持
+//然而并没有什么卵用

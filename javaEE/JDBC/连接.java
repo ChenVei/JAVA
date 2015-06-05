@@ -12,7 +12,10 @@ public class TestJDBC {
 			conn = DriverManager.getConnection(
 					"jdbc:oracle:thin:@localhost:1521:orcl", "scott", "tiger");
 			// 阿西吧。终于试成功了555或者是127.0.0.1
+		
 			stmt = conn.createStatement();
+			//默认情况下类型为 TYPE_FORWARD_ONLY，并带有 CONCUR_READ_ONLY 并发级别。
+
 			rs = stmt.executeQuery("select * from dept");  //类似于cursor
 			while (rs.next()) {
 				System.out.println(rs.getString("deptno"));

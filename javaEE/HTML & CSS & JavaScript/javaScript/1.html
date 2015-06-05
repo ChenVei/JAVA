@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>First javascript</title>
+	<script type="text/javascript">
+		alert("Hello World");
+		alert("OK");
+		var str="<b>这是javascript打印出来的</b>";
+		var arr=new Array(3);
+		arr[0]=1;arr[1]=2;arr[2]=3;arr[3]=arr[2]*3;arr[4]=100;arr[7]=555;arr["aa"]=456; //arr.length=8
+
+		var day=new Date();
+		var hour=day.getHours();
+
+	</script>
+	<script language="javascript" src="2.js"></script>
+</head>
+<body>
+	<br/>
+	hello javascript, this is a normal HTML document
+	<script type="text/javascript">
+		document.write(str.substring(2,9) + "<br/>" + str.charAt(5) + "<br/>"); /*第2个到第八个，从0开始数*/
+		for(var i in arr)
+			document.write(arr[i] + " ");
+		document.write("<br/>"+hour);
+
+		var i = 1;
+		while(i<11) {
+			document.write("<br/>" + i);  /*做成死循环会消耗内存，不断加载*/
+			i++;
+		}
+		document.write("<br/>"+arr.length);
+	</script>
+	back to normal
+
+</body>
+</html>

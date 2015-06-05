@@ -1,0 +1,117 @@
+<html>
+<head>
+	<title>form</title>
+	<!-- 样式表根据就近原则 -->
+	<style type="text/css">
+		h1{
+			font-size: 16pt;color: red;
+		}
+		.comment{              /*类选择符*/
+			font-size: 20pt;color: green;
+		}
+		p.code{
+			font-size: 16pt;color: red;
+		}
+		#code1{				   /*id选择符*/
+			font-size: 30pt;color: blue;
+		}
+		h3,a{
+			font-size: 45pt;color:purple;
+		}
+		h3 a{                 /*h3里的a，等级关系*/
+			font-size: 20pt;color:yellow;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="01.css">
+</head>
+
+<body>
+	<h1>hello world~</h1>
+	<h2>overwhelming world</h2>
+
+	<h3>quick brown fox jumps over the lazy dog</h3>
+	<a name="test">quick brown fox jumps over the lazy dog</a>
+
+	<h3>
+	<a name="test">Hello</a>
+	</h3>
+
+	<div id="code1">第一个java程序</div>
+	<p class="comment">//The first java programme</p>
+<pre>
+	<p class="code">
+public static void main(String[] args) {
+	System.out.println("Hello World!");
+}	
+	</p>
+</pre>
+
+	<form action="01.html" method="post">
+		<table width="750" align="center" border="2">
+			<tr>
+				<td colspan="2" align="center">用户注册</td>
+			</tr>
+			<tr>
+				<td>用户名</td>
+				<td>
+					<input type=text name="username" size="30" maxlength="10">
+				</td>
+			</tr>
+			<tr>
+				<td>密码</td>
+				<td>
+					<input type=password name="pwd" size="15" maxlength="12">
+				</td>
+			</tr>
+			<tr>
+				<td>性别</td>
+				<td>
+					<input type=radio name="gender" value="male">男
+					<input type=radio name="gender" value="female">女
+					<input type=radio name="gender" value="secret" checked>保密
+				</td>
+			</tr>
+			<tr>
+				<td>你感兴趣</td>
+				<td>
+					<input type="checkbox" name="interest" value="vc" checked>VC
+					<input type="checkbox" name="interest" value="vb" checked>VB
+					<input type="checkbox" name="interest" value="vf">VF
+					<input type="checkbox" name="interest" value="vj">VJ
+					<input type="checkbox" name="interest" value="java">JAVA
+				</td>
+			</tr>
+			<input type="hidden" name="interest" value="jsp">
+
+			<tr>
+				<td>你感兴趣</td>
+				<td>
+					<select name="interest2" size=8 multiple>
+						<option value="vc" selected>VC</option>
+						<option value="vb" selected>VB</option>
+						<option value="vf">VF</option>
+						<option value="vj">VJ</option>
+						<option value="java">JAVA</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>自我介绍</td>
+				<td>
+					<textarea rows=12 cols=80 name="intro" wrap="hard"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="submit" value="提交">
+					<input type="image" src="11.jpg" width=30>
+					<input type="reset" value="重置">
+					<input type="button" value="ok">
+				</td>
+			</tr>
+		</table>
+
+	</form>
+</body>
+</html>
