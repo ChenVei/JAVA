@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+
+
+<body>
+	<input id="number1" type="text">
+	<input id="number2" type="text">
+	<span id="result"></span>
+	<button id="addbtn">xx</button>
+
+	<script>
+		function $(id) {
+			return document.getElementById(id);
+		}
+		function add() {
+			$("result").innerHTML = $("number1").value + $("number2").value;
+		}
+		$("addbtn").addEventListener("click", add);
+	</script>
+	<script src="1.js"></script>
+</body>
+</html>

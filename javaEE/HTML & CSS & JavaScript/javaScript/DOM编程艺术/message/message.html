@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Message</title>
+  <script>
+  function addLoadEvent(func) {
+  	if (typeof window.onload != "function")
+  		window.onload = func;
+  	else {
+  		var old = window.onload;
+  		window.onload = function() {
+  			old();
+  			func();
+  		}
+  	}
+  }
+  function moveElement(elementID,final_x,final_y,interval) {
+  	var elem = document.getElementById(elementID);
+  	var x = parseInt(elem.style.left);
+  	var y = parseInt(elem.style.top);
+  	if (x == final_x && y == final_y)
+  		return true;
+  	if (x < final_x)
+  		x++;
+  	if (x > final_x)
+  		x--;
+  	if (y < final_y) 
+  		y++;
+  	if (y > final_y) 
+  		y--;
+  	elem.style.left = x + "px";
+	elem.style.top = y + "px";
+	var formula = "moveElement('" + elementID + "'," + final_x + "," + final_y + "," + interval + ")";
+  	movement = setTimeout(formula, interval);
+  }
+  function positionMessage() {
+  	var m1 = document.getElementById("message");
+  	var m2 = document.getElementById("message2");
+  	m1.style.position = "absolute";
+  	m2.style.position = "absolute";
+  	m1.style.left = "50px";
+  	m1.style.top = "50px";
+  	m2.style.left = "50px";
+  	m2.style.top = "100px";
+
+  	moveElement("message", 300, 200, 10);
+  	moveElement("message2", 300, 150, 10);
+
+  }
+  addLoadEvent(positionMessage);
+  </script>
+</head>
+<body>
+  <p id="message">Whee!</p>
+  <p id="message2">Whoa!</p>
+</body>
+</html>

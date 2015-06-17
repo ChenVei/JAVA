@@ -1,0 +1,53 @@
+<html>
+<head>
+	<script type="text/javascript">
+		try {
+			alxxert("what ?");
+			document.write("bbii!");
+		}
+		catch(err) {
+			txt = "there exists an error in this page:\n";
+			txt += err.message;
+			txt += "\nClick OK to contine";
+			alert(txt);
+		}
+		/*表单检查*/
+		function checkForm() {
+			var x = document.forms["MyForm"]["fname"].value;
+			if (x == null || x == "") {
+				alert("fname can't be empty!");
+				return false;
+			}
+			return true;
+		}
+		/*邮箱检查*/
+		function checkMail() {
+		
+			var x = document.forms["MyMail"]["email"].value;
+			var mm = x.indexOf("@"); //从0计数
+			var dd = x.lastIndexOf(".");
+			
+			var y = document.forms["MyForm"]["fname"];
+			y.value = mm + " " +dd;
+			
+			if (mm < 1 || mm + 2 < dd || dd + 1 >= x.length) {
+				alert("emali's format exists questions!");
+				return false;
+			};
+			return true;
+		}
+
+	</script>
+</head>
+<body>
+	<form name="MyForm" onsubmit="return checkForm()" action="1.html">
+		fname:<input type="text" name="fname" />
+		<input type="submit" value="提交" />
+	</form>
+
+	<form name="MyMail" onsubmit="return checkMail()">
+		email:<input type="text" name="email" />
+		<input type="submit" value="提交" />
+	</form>
+</body>
+</html>

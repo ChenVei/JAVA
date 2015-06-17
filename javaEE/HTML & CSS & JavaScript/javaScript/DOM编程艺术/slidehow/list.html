@@ -1,0 +1,72 @@
+<html>
+<head>
+  <title>Web Design</title>
+  <style>
+  #slideshow {
+    /*position: relative;*/
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+  }
+  </style>
+  <script>
+    function addLoadEvent(func) {
+      if (typeof window.onload != "function") 
+        window.onclick = func;
+      else {
+        var old = window.onclick;
+        window.onclick = function() {
+          old();
+          func();
+        }
+      }
+    }
+    function moveElement(elementID, final_x, final_y, interval) {
+      var elem = document.getElementById(elementID);
+      var x = elem.style.left;
+      var y = elem.style.top;
+      if (x == final_x && y == final_y) 
+        return true;
+      if (x < final_x)
+        x++;
+      if (x > final_x)
+        x--;
+      if (y < final_y) 
+        y++;
+      if (y > final_y) 
+        y--;
+      elem.style.left = x + "px";
+      elem.style.top = y + "px";
+      var repeat = "moveElement('" + elementID + "'," + final_x + "," + final_y + "," + interval +")";
+      setTimeout(repeat, interval);
+    }
+
+  </script>
+  
+</head>
+<body>
+  <h1>Web Design</h1>
+  <p>These are the things you should know.</p>
+  <ol id="linklist">
+    <li>
+      <a href="structure.html">Structure</a>
+    </li>
+    <li>
+      <a href="presentation.html">Presentation</a>
+    </li>
+    <li>
+      <a href="behavior.html">Behavior</a>
+    </li>
+  </ol>
+  <div id="slideshow">
+    <img src="topics.gif" alt="building blocks of web design" id="preview" />
+  </div>
+ 
+  <script>
+  var xx = document.getElementsByTagName("a");
+  for (var i = 0; i < xx.length; i++) {
+    xx[i].onclick = function() {return false;}
+  };
+  </script>
+</body>
+</html>

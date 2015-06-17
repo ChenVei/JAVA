@@ -1,0 +1,36 @@
+<html>
+<head>
+	<script type="text/javascript">
+	x = 5;
+	document.write(x === '5'); 
+		
+	document.write('who are you    ?');
+		function fun() {
+			var p = document.getElementById('func');
+			var c = p.firstChild;
+			c.nodeValue = 'No NO no';
+			/*或者为 p.innerHTML*/
+			// document.write("Xxx");  //文档加载完后执行 会覆盖原有内容
+			
+			var wtf = 156; /*会自动声明为全局变量*/
+		}
+		
+	/*对象的定义*/
+	var obj = {name:"Nick", age:15, id:"15151654"};
+	name = obj.name;
+	name = obj["name"];  //两种寻址方式
+	document.write(name);
+
+	</script>
+</head>
+<body>
+	<p id="func">yes yes </p>
+	<button onclick="fun()">hello</button>
+	<p id="demo">upupup</p>
+
+	<script type="text/javascript">
+		fun();
+		document.write(wtf);
+	</script>
+</body>
+</html>

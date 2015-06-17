@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+
+<script>
+// 判断arr是否为一个数组，返回一个bool值
+function isArray(arr) {
+    if (arr.constructor == Array)
+    	return true;
+   	return false;
+}
+
+// 判断fn是否为一个函数，返回一个bool值
+function isFunction(fn) {
+    if (typeof(fn) == "function")
+    	return true;
+   	return false;
+}
+// var ss = new Array();
+// alert(isArray(ss));
+// alert(isFunction(isArray));
+
+var obj = {
+	a:1,
+	b:{
+		b1:["hello","hi"],
+		b2:"javascript"
+	}
+};
+	alert(obj.b.b1[0]);
+
+</script>
+</body>
+</html>

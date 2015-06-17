@@ -1,0 +1,6 @@
+e:/tomcat8.0.23/bin/startup.bat
+					/shutdown.bat
+					/catalina.bat start
+					/catalina.bat stop
+					/catalina.bat debug
+					run

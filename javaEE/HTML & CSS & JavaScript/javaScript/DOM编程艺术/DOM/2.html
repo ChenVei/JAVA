@@ -1,0 +1,23 @@
+<html>
+<head>
+
+</head>
+<body>
+	<div id="d1">
+		<p id="p1">Hello</p>
+		<p>World!</p>
+	</div>
+	<script type="text/javascript">
+		/*添加元素*/
+		var para = document.createElement("p");
+		var text = document.createTextNode("WHAT THE FUCK");
+		para.appendChild(text);
+		var d1 = document.getElementById("d1");
+		d1.appendChild(para);
+
+		/*删除元素*/
+		var child = document.getElementById("p1");
+		child.parentNode.removeChild(child);
+	</script>
+</body>
+</html>

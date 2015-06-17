@@ -1,0 +1,28 @@
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<!-- // <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script> -->
+	<script>
+		$(document).ready(function() {
+			$("button").click(function() {
+				// $("p").hide(); //元素选择器
+				// $("#p2").hide();  //#id 选择器
+				$(".test").toggle(); //.class 选择器
+			})
+			$("#p1").dblclick(function() {
+				$(this).hide();
+			})
+			$("#p2").mousedown(function() {
+				alert("鼠标在该段落上按下")
+				$("#p1").show();
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1 class="test">title</h1>
+	<p id="p1">paragraph1</p>
+	<p id="p2" class="test">paragraph2</p>
+	<button>yes</button>
+</body>
+</html>

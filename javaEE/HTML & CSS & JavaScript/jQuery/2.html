@@ -1,0 +1,44 @@
+<html>
+<head>
+	<style>
+		div {
+			width: 80px;height: 80px;
+		}
+		#div1 {background-color: red}
+		#div2 {background-color: green}
+		#div3 {background-color: blue}
+
+		#flip,#panel{width:400px;background-color: #aaa;color: yellow;text-align: center;padding: 5px;margin:0 auto;}
+		#panel {padding: 50px;display: none;}
+	</style>
+	<script src="jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+				$("#bt1").click(function() {
+					$("#div1").fadeToggle();
+					$("#div2").fadeToggle("slow");
+					$("#div3").fadeToggle(3000);
+				})
+				$("#bt2").click(function() {
+					$("#div1").fadeTo("slow",0.2);
+					$("#div2").fadeTo("slow",0.5)
+					$("#div3").fadeTo("slow",0.7);
+				})
+
+				$("#flip").click(function() {
+					$("#panel").slideToggle("slow");
+				})
+			})
+	</script>
+</head>
+<body>
+	<button id="bt1">Yes</button>
+	<button id="bt2">fadeTo</button>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+
+	<div id="flip">Click to slide down panel</div>
+	<div id="panel">Hello</div>
+</body>
+</html>

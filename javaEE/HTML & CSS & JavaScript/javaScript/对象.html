@@ -1,0 +1,40 @@
+<html>
+<head>
+	<script type="text/javascript">
+		document.write(0.2 + 0.1 +"<br\>");
+		document.write(015 + "<br\>");
+		document.write(0x15 + "<br\>");
+	</script>
+</head>
+<body>
+	<p>name:<span id="name"></span><br />
+	age:<span id="age"></span><br />
+	addr:<span id="addr"></span><br />
+	phone:<span id="phone"></span>
+	</p>
+
+	<p id="fname">xxxx</p>
+
+	<script>
+	alert("after");
+		var obj = {
+			"name":"Bill",
+			"age":50,
+			"addr":"xxx.xxx",
+			"phone":"13033333" //◊¢“‚∑÷∫≈Œª÷√
+		};
+	document.getElementById("name").innerHTML = obj.name;
+	document.getElementById("age").innerHTML = obj.age;
+	document.getElementById("addr").innerHTML = obj.addr;
+	document.getElementById("phone").innerHTML = obj.phone;
+
+	var arr =[
+	{"name":"Bob", "age":19},
+	{"name":"Mary", "age":20},
+	{"name":"Jack", "age":15}
+	];
+	document.getElementById("fname").innerHTML = arr[0].name;
+	</script>
+</body>
+
+</html>
