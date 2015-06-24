@@ -11,7 +11,6 @@
   	<servlet-name>HW</servlet-name>
   	<servlet-class>HelloServlet</servlet-class>
   </servlet>
-
   <servlet-mapping>
   	<servlet-name>HW</servlet-name>
   	<url-pattern>/abc</url-pattern>
@@ -21,7 +20,6 @@
     <servlet-name>TestLifeCycle</servlet-name>
     <servlet-class>TestLifeCycle</servlet-class>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>TestLifeCycle</servlet-name>
     <url-pattern>/TestLifeCycle</url-pattern>
@@ -31,9 +29,26 @@
     <servlet-name>ThreeParams</servlet-name>
     <servlet-class>ThreeParams</servlet-class>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>ThreeParams</servlet-name>
     <url-pattern>/servlet/ThreeParams</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SetCookies</servlet-name>
+    <servlet-class>SetCookies</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SetCookies</servlet-name>
+    <url-pattern>/SetCookies</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ShowCookies</servlet-name>
+    <servlet-class>ShowCookies</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowCookies</servlet-name>
+    <url-pattern>/ShowCookies</url-pattern>
   </servlet-mapping>
 </web-app>
