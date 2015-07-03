@@ -1,5 +1,5 @@
 
-//求工资最多的人姓名 按部门
+//按部门排 求工资最多的 人的姓名 
 select ename, sal from emp
 join (select max(sal) max_sal, deptno from emp group by deptno) t
 on (emp.sal = t.max_sal and emp.deptno = t.deptno);
@@ -43,6 +43,10 @@ select avg_sal, deptno from
 (select avg(sal) avg_sal, deptno from emp group by deptno) 
 where avg_sal = (select max(avg(sal)) from emp group by deptno);  //组合函数嵌套，但只能嵌套一层
 
+select avg(sal) ,deptno from emp group by deptno
+having avg(sal) = 
+(select max(avg(sal)) maxsal from emp group by deptno);  //用having
+
 //平均薪水最高的 部门名称
 select dname from dept 
 where deptno = (
@@ -51,6 +55,13 @@ select deptno from
 where avg_sal = (select max(avg_sal) max from 
 (select avg(sal) avg_sal, deptno from emp group by deptno) 
 ));
+
+select dname from dept
+where deptno = 
+(select deptno  from emp group by deptno
+having avg(sal) =
+(select max(avg(sal)) from emp group by deptno)
+);
 
 //求平均薪水等级最低的 部门名称
 select dname, t1.deptno, grade, avg_sal from
@@ -79,7 +90,7 @@ where empno in
  (select distinct mgr from emp)
 and sal > 
 (
- select sal from emp
+ select max(sal) from emp
   where empno not in 
   (select distinct mgr from emp 
   	where mgr is not null)
@@ -91,14 +102,14 @@ S（SNO，SNAME）代表（学号，姓名）
 C（CNO，CNAME，CTEACHER）代表（课号，课名，教师） 
 SC（SNO，CNO，SCGRADE）代表（学号，课号, 成绩） 
 问题： 
-1，找出 没选过“黎明”老师的 所有学生姓名。 
+1，找出 没选过“黎明”老师所有课的 所有学生姓名。 
 2，列出 2门以上（含2门）不及格 学生姓名及平均成绩。 
 3，既学过1号课程又学过2号课所有学生的姓名。 
 
 1.	select sname from S join
 	SC on (S.sno = SC.sno) join
 	C on (C.cno = SC.cno)
-	where c.cteacher <> '黎明';
+	where C.cteacher <> '黎明';
 2.
 SELECT t.av,s.SNAME FROM ( 
 SELECT sc.SNO,AVG(sc.SCGRADE) AS av FROM Stu_Cau sc 

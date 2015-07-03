@@ -19,9 +19,10 @@
  select count(distinct deptno) from emp;
  select avg(sal),deptno from emp group by deptno;
 
+  //选出每个部门里 每个工作 工资最高的人
   select max(sal),deptno,job from emp group by deptno, job;
 
-  //选出工资最多的人姓名 按部门
+  //选出按部门排的 工资最多的 人的姓名 
    select ename, deptno, sal from emp
    where sal in (select max(sal) from emp group by deptno)  order by deptno;  //用in是错误的，会有重复值被选入
 

@@ -24,6 +24,9 @@ show databases;
 show tables;
 desc dept;
 
+show create table article; //展示表的信息
+set names gbk; //设置编码
+
 insert into dept values (10,'A','A');
 insert into dept values (20,'B','B');
 insert into dept values (30,'C','C');
