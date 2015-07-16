@@ -19,7 +19,7 @@ public class Test {
 		System.out.println(c);
 		System.out.println(c1);
 		
-//		System.out.println(c.addAll(c1));  //求并集
+//		System.out.println(c.addAll(c1));  //求并集  会对原集合产生影响
 //		System.out.println(c);
 		
 //		System.out.println(c.removeAll(c1));  //求差集

@@ -34,6 +34,7 @@ insert into dept values (40,'D','D');
 insert into dept values (50,'E','E');
 
 delete from dept;
+drop database shopping; //删除数据库
 
 //分页
 select * from dept order by deptno desc limit 3,2; --从第三条后数两条

@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+.sidebox{
+	position: absolute;
+	width:128px;
+	height:auto;
+	overflow:hidden;
+	border:1px solid #d6d6d6;
+	top:-31px;
+	left:-140px;
+	 background:#fff;
+	font-family:宋体; 
+	}
+.sideico{ background:url(../images/forum/s_ico04.jpg) no-repeat center center; width:7px; height:51px; position:absolute;top:50%;left:-7px;}
+.s_tit01{margin:0 auto; height:30px; line-height:30px; color:#333px; text-align:left; padding:5px 0 5px 18px; font-size:14px;font-weight:bold; clear:both;}
+.s_tit02{padding-left:12px;}
+.s_tit02 img{ margin-right:5px;cursor:pointer;}
+.s_tit03{ background:url(../images/forum/s_ico02.jpg) no-repeat 12px center;}
+/*搜索列表*/
+.s_ul,.s_ul02{height:auto; overflow:hidden;margin:0 auto; padding-bottom:10px; background:url(../images/forum/s_line.jpg) no-repeat center bottom;}
+.s_ul ul li,.s_ul02 ul li{ height:25px; line-height:25px; float:left;}
+.s_ul ul li a{ display:block; padding:0 0 0 18px; text-align:left; color:#125bb9;}
+.s_ul ul li a:link,.s_ul ul li a:visited{ color:#125bb9; background:#fff; text-decoration:none;}
+.s_ul ul li a:hover{ background:#e0f1f8;}
+.s_ul02 ul li a:active{ color:#125bb9;text-decoration:none;}
+.s_ul02 ul li{padding:0 5px 0 18px; text-align:left; width:105px;}
+.s_ul ul li a{ display:block; padding:0 0 0 18px; text-align:left; color:#125bb9;width:110px;}
+.s_ul02 ul li.li01,.s_ul02 ul li.li02{height:25px; line-height:25px; float:left; }
+.s_ul02 ul li.li01{ background:#fff; color:#125bb9;}
+.s_ul02 ul li.li02{ background:#e0f1f8;}
+.s_ul02 ul li.li99{}
+.s_ul02 ul li.li02 a,.s_ul02 ul li.li01 a{color:#125bb9; text-decoration:none;}
+.s_ul02 ul li.li02 a{float:left; }
+.s_ul02 ul li.li02 span{ float:right; margin-top:6px;}
+.s_cbtn{ width:7px; height:51px; position:absolute;top:200px; left:0;}
+#collectul span {float:right;margin-top:6px;}
+#collectul .remove {display:none;}
+#home_top .top_nav .right .login2 {padding:0;}
+
+.s_ul02 ul li a:link,.s_ul02 ul li a:visited{ color:#125bb9;}
+.s_ul02 ul li a:hover{ background:#e0f1f8;}
+.s_ul02 ul li a:active{ color:#125bb9;}
+
