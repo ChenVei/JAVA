@@ -9,4 +9,30 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+    <servlet>
+        <servlet-name>UploadHandleServlet</servlet-name>
+        <servlet-class>com.bjsxt.shopping.servlet.UploadHandleServlet</servlet-class>
+        <init-param>
+            <param-name>intPath</param-name>
+            <param-value>E:/tomcat8.0.23/webapps/MyShopping/images/products/</param-value>
+        </init-param>
+    </servlet>
+  <servlet>
+    <servlet-name>ShowProductSalesServlet</servlet-name>
+    <servlet-class>com.bjsxt.shopping.reports.ShowProductSalesServlet</servlet-class>
+        <init-param>
+            <param-name>iniPath</param-name>
+            <param-value>E:/tomcat8.0.23/webapps/MyShopping/images/reports</param-value>
+        </init-param>
+  </servlet>
+
+   
+    <servlet-mapping>
+	    <servlet-name>UploadHandleServlet</servlet-name>
+	    <url-pattern>/servlet/UploadHandleServlet</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowProductSalesServlet</servlet-name>
+    <url-pattern>/servlet/ShowProductSalesServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

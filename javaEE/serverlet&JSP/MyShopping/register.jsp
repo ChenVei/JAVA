@@ -55,7 +55,7 @@ if(action != null && action.equals("register")) {
 			<tr>
 				<td>ÓÃ»§Ãû£º</td>
 				<td><input type=text name="username" size="30" maxlength="10"
-					onblur="checkUserName(this.value.toLowerCase())">
+					onblur="validate()" id="um">
 					<div id="usernameErr"></div> <!--<span id="usernameErr"></span>-->
 				</td>
 			</tr>
@@ -90,5 +90,29 @@ if(action != null && action.equals("register")) {
 
 		</table>
 	</form>
+	
+	<script type="text/javascript">
+		function validate() {
+			var xmlhttp;
+			if (window.XMLHttpRequest)
+			  {// code for IE7+, Firefox, Chrome, Opera, Safari
+			  xmlhttp=new XMLHttpRequest();
+			  }
+			else
+			  {// code for IE6, IE5
+			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			xmlhttp.onreadystatechange = function() {
+				
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("usernameErr").innerHTML = xmlhttp.responseText;
+				}
+			}
+			str = escape(document.getElementById("um").value);
+			xmlhttp.open('get', 'Query.jsp?name='+str, true);
+			xmlhttp.send();
+			
+		}
+	</script>
 </body>
 </html>

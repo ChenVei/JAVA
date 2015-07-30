@@ -35,6 +35,7 @@ List<Category> categories = Category.getCategories();
 			<td>Add ChildNode</td>
 			<td>Del Node</td>
 			<td>Modify</td>
+			<td>Add prduct</td>
 		</tr>
 		
 			<%
@@ -55,11 +56,18 @@ List<Category> categories = Category.getCategories();
 				<a href="categoryadd.jsp?pid=<%= c.getId()%>">Add</a>
 			</td>
 			<td>
-				<a href="categorydel.jsp?id=<%= c.getId()%>&pid=<%= c.getPid()%>">Del</a>			
+				<a href="categorydel.jsp?id=<%= c.getId()%>&pid=<%= c.getPid()%>">delete</a>			
 			</td>
 			<td>
 				<a href="categorymodify.jsp?id=<%= c.getId()%>">modify</a>			
 			</td>
+			<%
+				if(c.isLeaf()) {
+			%>
+			<td>
+				<a href="productadd.jsp?categoryid=<%= c.getId()%>&">add</a>			
+			</td>
+				<% }%>
 			</tr>
 			<% } %>
 		
