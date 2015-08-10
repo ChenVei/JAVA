@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!--  
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action>
+    </package>
+
+    <include file="example.xml"/>
+	-->
+	<constant name="struts.devMode" value="true" /> <!-- deploy automatically -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />  <!-- DMI button -->
+	<constant name="struts.i18n.encoding" value="utf-8"></constant> <!-- internationalization -->
+	
+	
+	<package name="front" namespace="/front" extends="struts-default">
+        <action name="index" class="struts2.front.action.IndexAction1">  <!-- DynamicMethodInvokation !add-->
+            <result name="x123">
+            	/myJsp.jsp
+            </result>
+            <result name="error">/error.jsp</result>
+        </action>
+    </package>
+    
+    <package name="user" extends="struts-default" namespace="/user">
+    	<action name="user" class="struts2.front.action.UserAction">
+    		<result>/hello.jsp</result>
+   		 </action>
+    </package> 
+    
+    <package name="user1" extends="struts-default" namespace="/user">
+    	<action name="user1" class="struts2.front.action.UserAction1">
+    		<result>/myJsp.jsp</result>
+   		</action>
+    </package> 
+    <!-- Add packages here -->
+
+</struts>
