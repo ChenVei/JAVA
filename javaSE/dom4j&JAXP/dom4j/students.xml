@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<info>
+	<student name="aa" id="1">
+		<age>13</age>
+		<sex>male</sex>
+		<grade>84</grade>
+	</student>
+
+	<student name="aa" id="2">
+		<age>16</age>
+		<sex>female</sex>
+		<grade>95</grade>
+	</student>
+
+	<student name="cc">
+		<age>20</age>
+		<sex>male</sex>
+		<grade>99</grade>
+	</student>
+
+	<student name="ws">
+		<age>18</age>
+		<sex>male</sex>
+		<grade>90</grade>
+	</student>
+</info>

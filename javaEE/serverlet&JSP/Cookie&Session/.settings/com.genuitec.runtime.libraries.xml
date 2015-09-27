@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project>
+  <container path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0">
+    <jar-attrs id="lib//catalina-ha.jar">
+      <attribute name="javadoc_location"/>
+      <attribute name="source-path-root"/>
+      <attribute name="source-path" value="C:\Users\Administrator\Desktop\XIAZAI\apache-tomcat-8.0.23-src.zip"/>
+    </jar-attrs>
+  </container>
+</project>
