@@ -62,7 +62,11 @@
 					<tr>
 						<td>published</td>
 						<td><input type="text" name="pdate"
-							onclick="showCalendar(this.id)" id="pdate" value="${b.pdate }"></td>
+							onclick="showCalendar(this.id)" id="pdate" value="${b.pdate }" ></td>
+					</tr>
+					<tr>
+						<td>publisher</td>
+						<td><input type="text" name="publisher" value="${b.publisher }"></td>
 					</tr>
 					<tr>
 						<td>categories</td>

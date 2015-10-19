@@ -12,6 +12,7 @@ import cn.dao.BookDao;
 import cn.dao.impl.BookDaoImpl;
 import cn.domain.Book;
 import cn.domain.Category;
+import cn.domain.User;
 import cn.service.BusinessService;
 
 public class BusinessServiceImplTest {
@@ -29,13 +30,17 @@ public class BusinessServiceImplTest {
 	}
 	@Test
 	public void testAddBook() {
-		for (int i = 0; i < 40; i++) {
+		/*for (int i = 0; i < 40; i++) {
 			BusinessService bs = new BusinessServiceImpl();
 			Book b = new Book("Who"+i, "cool"+i, "WS"+i, new Date());
 			List<Category> list = bs.getAllCategories();
 			b.setCategories(list);
 			bs.addBook(b);
-		}
+		}*/
+		Book b = new Book("zzzz", "cool", "WS", new Date(), "清华大学出版社");
+		List<Category> list = bs.getAllCategories();
+		b.setCategories(list);
+		bs.addBook(b);
 	}
 	
 	@Test
@@ -65,8 +70,6 @@ public class BusinessServiceImplTest {
 		
 		Category c = new Category("职场");
 		bs.addCategory(c);
-		c = new Category("玄幻");
-		bs.addCategory(c);
 	}
 
 	@Test
@@ -84,6 +87,14 @@ public class BusinessServiceImplTest {
 	@Test
 	public void testGetAllCategories() {
 		List<Category> list = bs.getAllCategories();
+	}
+	
+	@Test
+	public void testAddUser() {
+		for (int i = 2; i < 8; i++) {
+			User u = new User(0, "test"+i, "123123", "aa@ss.com"+i, false);
+			bs.addUser(u);
+		}
 	}
 	
 }

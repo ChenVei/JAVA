@@ -2,7 +2,7 @@ package cn.domain;
 
 public class QueryInfo {
 	private int currentpage = 1;
-	private int pagesize = 5;
+	private int pagesize = 6;
 	private int startindex;
 	private String queryString;
 	

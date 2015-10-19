@@ -18,9 +18,9 @@ class MyDataSource {
 
 	static {
 		try {
-			InputStream is = JdbcUtils.class.getClassLoader()
+			InputStream is = JdbcUtils.class
 					.getResourceAsStream("db.properties");
-			config = new Properties();
+			config = new Properties();    
 			config.load(is);
 			String driver = config.getProperty("driver");
 			Class.forName(driver);

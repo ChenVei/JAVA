@@ -84,10 +84,15 @@ body {
         <li><a href="${basePath}/servlet/CategoryServlet?method=listCategory" target="rightFrame">查看/删除分类</a></li>
       </ul>
     </li>
-    <li> <a class="head">留言评论管理</a>
+    <li> <a class="head">用户管理</a>
       <ul>
-        <li><a href="#" target="rightFrame">查看/删除留言</a></li>
-        <li><a href="#" target="rightFrame">查看/删除评论</a></li>
+        <li><a href="${basePath}/servlet/UserServlet?method=getAll" target="rightFrame">查看用户</a></li>
+      </ul>
+    </li>
+    <li> <a class="head">新闻管理</a>
+      <ul>
+        <li><a href="${basePath}/back/addnews.jsp" target="rightFrame">添加新闻</a></li>
+        <li><a href="${basePath}/back/listnews.jsp" target="rightFrame">查看新闻</a></li>
       </ul>
     </li>
     <li> <a class="head">版本信息</a>

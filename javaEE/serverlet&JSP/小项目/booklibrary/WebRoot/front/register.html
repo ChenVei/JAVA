@@ -1,0 +1,205 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>Register</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Movie_store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- start plugins -->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<link href='http://fonts.useso.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <script language="javascript" type="text/javascript">
+
+
+        function password_onclick() {
+
+        }
+
+        function checkformname() {
+            var regname = /^\w{4,10}$/;
+            var fname = document.getElementById("userName");
+            var ftname = document.getElementById("suserName");
+            if (fname.value == "" || fname.value.length < 4 || fname.value.length > 10) {
+                ftname.className = "frred";
+                ftname.innerHTML = "<font color='red'>× 请输入4-10位用户名，可包含数字、字母、下划线</font>";
+            }
+            else {
+                if (fname.value.match(regname)) {
+                    ftname.className = "fgren";
+                    ftname.innerHTML = "<font color='green'>√用户名可用!</font>";
+                }
+                else {
+                    ftname.className = "frred";
+                    ftname.innerHTML = "<font color='red'>× 用户名格式输入错误，请检查！</font>";
+                } 
+            }
+        }
+        function checkpwd() {
+            var fpwd = document.getElementById("password");
+            var ftpwd = document.getElementById("spassword");
+            if (fpwd.value == "" || fpwd.value.length < 6 || fpwd.value.length > 20) {
+                ftpwd.className = "frred";
+                ftpwd.innerHTML = "<font color='red'>× 请输入6-20位用户密码！</font>";
+            }
+            else {
+                ftpwd.className = "fgren";
+                ftpwd.innerHTML = "<font color='green'>√密码可用！</font>";
+            }
+        }
+        function rcheckpwd() {
+            var fpwd = document.getElementById("password");
+            var frpwd = document.getElementById("password1");
+            var ftrpwd = document.getElementById("spassword1");
+            if (frpwd.value == "") {
+                ftrpwd.className = "frred";
+                ftrpwd.innerHTML = "<font color='red'>× 请输入您的重复密码！</font>";
+            }
+            else {
+                if (frpwd.value != fpwd.value) {
+                    ftrpwd.className = "frred";
+                    ftrpwd.innerHTML = "<font color='red'>× 俩次密码输入不一致，请重新输入！</font>";
+                }
+                else {
+                    ftrpwd.className = "fgren";
+                    ftrpwd.innerHTML = " <font color='green'>√ 密码输入正确</font>";
+                }
+            }
+        }
+
+        function checkemail() {
+            var regemail = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*(;\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)*$/;
+            var femail = document.getElementById("adminName");
+            var ftemail = document.getElementById("sadminName");
+            if (femail.value == "") {
+                ftemail.className = "frred";
+                ftemail.innerHTML = "<font color='red'>× 电子邮箱不能为空！</font>";
+            }
+            else {
+                if (femail.value.match(regemail)) {
+                    ftemail.className = "fgren";
+                    ftemail.innerHTML = "<font color='green'>√ 邮箱地址正确！</font>";
+                }
+                else {
+                    ftemail.className = "frred";
+                    ftemail.innerHTML = "<font color='red'>× 邮箱格式输入错误，请检查！</font>";
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+	<div class="container_wrap">
+		<div class="header_top">
+		    <div class="col-sm-3 logo"><a href="index.html"><img src="images/logo.jpg" alt=""/></a></div>
+		 	   
+			<div class="clearfix"> </div>
+	      </div>
+	      <div class="content">
+      	     <div class="register">
+		  	  
+		  	  <form action="../servlet/UserServlet?method=add" method="post"> 
+				 <div class="register-top-grid">
+					<h3>个人信息</h3>
+					 <div>
+						<span>用户名<label>*</label></span>
+						<input type="text" name="username"  size="35" style="width:292px;" id="userName" onblur="checkformname()"/>
+                        <span id="suserName" class="frbule">只能有下划线、数字和字母构成</span> 
+					 </div>
+
+                      
+					
+					 <div>
+						 <span>邮箱地址<label>*</label></span>
+						 <input type="text" name="email" size="35" style="width:292px;" id="adminName" onblur="checkemail()">
+                         <span id="sadminName" class="frbule">请输入正确的邮箱</span> 
+					 </div>
+					 
+					  
+					 </div>
+				     <div class="register-bottom-grid">
+						    
+							 <div>
+								<span>密&nbsp;&nbsp;码<label>*</label></span>
+								<input type="password" name="password" size="35" style="width:289px;" 
+                          id="password" onclick="checkpwd()">
+                          <span id="spassword" class="frbule">请输入至少6位的密码</span>
+							 </div>
+							 <div>
+								<span>确认密码<label>*</label></span>
+								<input type="password" name="password1" size="35" style="width:291px;" 
+                          id="password1" onblur="rcheckpwd()">
+                          <span id="spassword1" class="frbule">请再次确认密码</span>
+							 </div>
+							 <div class="clearfix"> </div>
+					 </div>
+						 <div class="clearfix"> </div>
+						 <div class="register-but">
+							 <input type="submit" value="确认">
+						 </div>
+				</form>
+				
+				
+		   </div>
+           </div>
+    </div>
+</div>
+<div class="container"> 
+ <footer id="footer">
+ 	<div id="footer-3d">
+		<div class="gp-container">
+			<span class="first-widget-bend"> </span>
+		</div>		
+	</div>
+    <div id="footer-widgets" class="gp-footer-larger-first-col">
+		<div class="gp-container">
+            <div class="footer-widget footer-1">
+            	<div class="wpb_wrapper">
+					<img src="images/f_logo.png" alt=""/>
+				</div> 
+	          <br>
+	         <p>经过我们不懈努力终于做出了这个网站</p>
+			  <p class="text">仍有许多功能不完善，希望大家多多包涵</p>
+			 </div>
+			 <div class="footer_box">
+			  <div class="col_1_of_3 span_1_of_3">
+					<h3>实用分类</h3>
+					<ul class="first">
+						<li><a href="#">历史记录</a></li>
+						<li><a href="#">快速查询</a></li>
+						<li><a href="#">好书推荐</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>书本信息</h3>
+					<ul class="first">
+						<li><a href="#">新书速递</a></li>
+						<li><a href="#">畅销热书</a></li>
+						<li><a href="#">书本纠错</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>关注我们</h3>
+					<ul class="first">
+						<li><a href="#">微博</a></li>
+						<li><a href="#">微信</a></li>
+						<li><a href="#">qq空间</a></li>
+					</ul>
+					<div class="copy">
+				      <p>欢迎联系湖北大学的我们</p>
+			        </div>
+		     </div>
+		    <div class="clearfix"> </div>
+	        </div>
+	        <div class="clearfix"> </div>
+		</div>
+	</div>
+  </footer>
+</div>		
+</body>
+</html>

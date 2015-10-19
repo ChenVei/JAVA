@@ -1,359 +1,122 @@
-<%@page import="cn.domain.PageBean"%>
 <%@page import="cn.domain.Category"%>
 <%@page import="cn.dao.impl.CategoryDaoImpl"%>
-<%@page import="cn.dao.impl.BookDaoImpl"%>
-<%@page import="cn.service.impl.BusinessServiceImpl"%>
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="cn.domain.PageBean"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-	+ request.getServerName() + ":" + request.getServerPort()
-	+ path + "/";
-	
-	String id = request.getParameter("cid");
-	request.setAttribute("cid", id);
-	CategoryDaoImpl cdi = new CategoryDaoImpl();
-	if(id != null) { 
-	Category c = cdi.getCategory(id);
-	request.setAttribute("c", c);
-	}
-	
-	BusinessServiceImpl bs = new BusinessServiceImpl();
-	List<Category> categories = bs.getAllCategories();
-	request.setAttribute("categories", categories);
-	request.setAttribute("cat", categories);
+String id = request.getParameter("cid");
+request.setAttribute("cid", id);
+
+CategoryDaoImpl cdi = new CategoryDaoImpl();
+if(id != null) { 
+Category c = cdi.getCategory(id);
+request.setAttribute("c", c);
+}
+
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/front/";
 %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0045)http://hbdx.chineseall.cn/org/show/sort/I24/0 -->
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
 <base href="<%=basePath%>">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>我们读书吧-读书吧管理系统</title>
-
-
-<link href="http://hbdx.chineseall.cn/orgcommon/common/layout.css"
-	rel="stylesheet">
-<link href="http://hbdx.chineseall.cn/orgcommon/common/yuelanshi.css"
-	rel="stylesheet">
-<link href="http://hbdx.chineseall.cn/orgcommon/common/search.css"
-	rel="stylesheet">
-<script type="text/javascript" src="./list_files/tab.js"></script>
-<script type="text/javascript" src="./list_files/jquery.min.js"></script>
-<style type="text/css">
-.pagination {
-	text-align: right;
-	padding: 5px;
-	padding-top: 3px;
-}
-
-.pagination a,.pagination span {
-	cursor: pointer;
-	margin: 5px;
-	color: #617f9e;
-	font-size: 12px;
-}
-
-.pagination .current {
-	color: black;
-}
-</style>
-<style type="text/css"></style>
+<title>${c.name }</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="Movie_store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+<!-- start plugins -->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<link href="http://fonts.useso.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
 </head>
 <body>
-
-
-
-
-
-
-
-	<style>
-body {
-	background: url(/orgcommon/common/img/body.jpg) center top no-repeat;
-}
-</style>
-
-
-
-	<style type="text/css">
-#myroomtag {
-	width: 200px;
-	height: 116px;
-	position: absolute;
-	top: 30px;
-	right: 2px;
-	display: none;
-	z-index: 1000;
-}
-
-#myroomtag .bg {
-	border: #000000 1px solid;
-	height: 114px;
-	background: #000000;
-	opacity: 0.5;
-	filter: Alpha(Opacity = 50);
-	position: relative;
-	z-index: 100;
-}
-
-#myroomtag .tag {
-	position: absolute;
-	top: 10px;
-	left: 0;
-	line-height: 24px;
-	z-index: 101;
-}
-
-#myroomtag .tag a {
-	margin-left: 26px;
-}
-
-#myroomtag .tag a:hover {
-	color: red;
-}
-
-.baruser {
-	float: right;
-	position: relative;
-	z-index: 3100;
-	padding-right: 10px;
-}
-
-.baruser .name {
-	color: #ff6600;
-}
-
-.baruser .myroom {
-	margin-right: 5px;
-	padding-right: 8px;
-	cursor: pointer;
-	background: url(/common/style/agency/common/icon_jt.png) no-repeat right
-		5px;
-}
-
-#suborgtag {
-	width: 200px;
-	height: 116px;
-	position: absolute;
-	top: 30px;
-	right: 2px;
-	display: none;
-	z-index: 1000;
-}
-
-#suborgtag .bg {
-	border: #000000 1px solid;
-	height: 114px;
-	background: #000000;
-	opacity: 0.5;
-	filter: Alpha(Opacity = 50);
-	position: relative;
-	z-index: 100;
-}
-
-#suborgtag .tag {
-	position: absolute;
-	top: 10px;
-	left: 0;
-	line-height: 24px;
-	z-index: 101;
-}
-
-#suborgtag .tag a {
-	margin-left: 26px;
-}
-
-#suborgtag .tag a:hover {
-	color: red;
-}
-
-.baruser .suborg {
-	margin-right: 5px;
-	padding-right: 8px;
-	cursor: pointer;
-	background: url(/common/style/agency/common/icon_jt.png) no-repeat right
-		5px;
-}
-</style>
-	<link href="./list_files/util.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="./list_files/head.js" defer=""></script>
-	<script type="text/javascript" src="./list_files/util.js"></script>
-
-	<div class="header">
-
-		<div class="header-bg1">
-			<div class="headTop" style="overflow:visible;">
-				<div class="headMenu" style="float:left;">
-
-
-
-
-
-
-					<a>我们读书吧</a>
-
-
-				</div>
-
-				<div id="loginlink" class="baruser">
-					HI， <a style="cursor: pointer;" onclick="loginBox();">请登录</a><a
-						href="http://hbdx.chineseall.cn/sso/reg.jsps?orgCode=1652">注册</a>
-				</div>
+<div class="container">
+	<div class="container_wrap">
+<div class="header_top">
+		    <div class="col-sm-3 logo"><a href="${pageContext.request.contextPath}/front/index.jsp"><img src="images/logo.jpg" alt="" /></a></div>
+		    <div class="col-sm-6 nav">
+			  <ul>
+				 <!-- *********************Categories************************************* -->
+						<c:forEach var="c" items="${list }">
+							<li><span class="simptip-position-bottom simptip-movable"
+								data-tooltip="${c.name }"><a href="${pageContext.request.contextPath}/servlet/UIServlet?method=getAll&cid=${c.id }" target="_blank">
+								</a> </span></li>
+						</c:forEach>
+				<!-- *********************Categories************************************* -->
+			 </ul>
 			</div>
-		</div>
-
-		<script language="javascript">
-			$
-					.ajax({
-						url : '/sso/loginUserInfo.jsps?t=' + new Date(),
-						type : 'GET',
-						dataType : 'text',
-						timeout : 1000,
-						error : function() {
-						},
-						success : function(data) {
-							if (data.length > 0) {
-								var json = eval('(' + data + ')');
-								if (json.id > 0) {
-									$("#login_div").hide();
-									$("#displayname").html(json.displayName);
-									if (json.displayName.length == 0) {
-										$("#displayname").html(json.userName);
-									}
-
-									$("#letternum").html("书信");
-									if (json.letterNum > 0) {
-										$("#letternum").html(
-												"书信(" + json.letterNum + ")");
-									}
-									if (json.orgCode == null) {
-										$("#myorg").remove();
-									} else {
-										if (json.domain) {
-											$("#myorg")[0].href = "http://"
-													+ json.domain
-													+ "/org/show/index";
-										} else {
-											$("#myorg")[0].href = "/org/show/"
-													+ json.orgCode;
-										}
-									}
-									if (json.type != 2) {
-										$("#orgmanage").remove();
-									}
-									if (json.domain.length > 0) {
-										$("div#loginlink a").each(function() {
-											//var hh='http://'+json.domain+$(this).attr("href");
-											//$(this).attr("href",hh);
-										});
-									}
-								} else {
-									$("#loginlink")
-											.html(
-													"HI， <a style='cursor: pointer;' onclick='loginBox();' >请登录</a><a href='/sso/reg.jsps?orgCode=1652'>注册</a>");
-								}
-							} else {
-								$("#loginlink")
-										.html(
-												"HI， <a style='cursor: pointer;' onclick='loginBox();' >请登录</a><a href='/sso/reg.jsps?orgCode=1652'>注册</a>");
-							}
-						}
-					});
-		</script>
-		<div class="headMain">
-
-			<h1 style="font-size:35px;color: #0000FF;">书香湖大-我们读书吧</h1>
-
-
-			<div class="headSearch">
-				<input class="ipt" type="text" id="searchKey"
-					onmouseout="if(this.value=='')this.value=this.defaultValue"
-					onmouseover="if(this.value==this.defaultValue)this.value=''"
-					value="书名、作者名"> <input class="btn" type="button"
-					onclick="jump()" value="">
+			<div class="col-sm-3 header_right">
+			   <ul class="header_right_box">
+	
+				<c:choose>
+						   <c:when test="${user != null }">  
+						       <c:out value="欢迎您，${user.username }"></c:out>
+						       <a href="../servlet/UserServlet?method=quit">注销</a>
+						   </c:when>
+						   <c:otherwise> 
+						    <span class="simptip-position-bottom simptip-movable"
+							data-tooltip="登录/注册"><a href=login.html>
+								<li class="last"><i class="edit"></i></li>
+							</a></span>
+							<div class="clearfix"></div>
+						   </c:otherwise>
+						</c:choose>
+			   </ul>
 			</div>
-			<script>
-function jump() {
-	var name = document.getElementById('searchKey').value;
-	window.location.href='servlet/UIServlet?method=getSpecfic&name='+name;
-}
-		</script>
-		</div>
+			<div class="clearfix"> </div>
+	      </div>
+	      <div class="content">
+	   	   <h2 class="m_3">${c.name }</h2>
+      	       <div class="movie_top">
+      	         <div class="col-md-9 movie_box">
+                        
+                      <c:forEach var="b" items="${pb.list }">
+                      <div class="movie movie-test movie-test-dark movie-test-left">
+                          <div class="movie__images">
+                              <a href="${pageContext.request.contextPath}/front/single.jsp?id=${b.id }" target="_blank" class="movie-beta__link">
+                                  <img alt="${b.name }" src="${pageContext.request.contextPath}/img/bookcover/${b.id }.jpg" width="306" height="350" class="img-responsive">
+                              </a>
+                          </div>
+                          <div class="movie__info">
+                              <a href="${pageContext.request.contextPath}/front/single.jsp?id=${b.id }" target="_blank" class="movie__title"> ${b.name }</a>
+                              <br><br>
+                              
+                          	    作者: ${b.author }
+                          	    
+                          	  <br>
+                              <br>
+                              <p class="movie__option">
+                              	类别：<c:forEach var="c" items="${b.categories }" >
+                             		 <a href="../servlet/UIServlet?method=getAll&cid=${c.id }" target="_blank">${c.name }</a> |  
+                              	</c:forEach>
+                              </p><br>
+                              <p class="movie__option">
+                              	出版社： ${b.publisher }
+                              </p><br>
+                              <ul class="list_6">
+                                  <li><i class="icon1"> </i><p><%=(int)(Math.random()*10000) %></p></li>
+                                  <li><i class="icon3"> </i><p><%=(int)(Math.random()*1000) %></p></li>
+                                  <br>
+                                  <li>评价 : &nbsp;&nbsp;<p><img src="images/rating1.png" alt=""></p></li>
+                                  <div class="clearfix"> </div>
+                              </ul>
+                          </div>
+                          <div class="clearfix"> </div>
+                      </div>
+                      </c:forEach>
+                         
 
-		<div class="header-img"></div>
-		<div class="header-bg2">
-			<div class="headNav" id="channels">
-
-
-				<ul>
-					<!-- **********************Title****************************** -->
-					<li class="aIndex"><a href="front/main.jsp">首页</a></li>
-					<li><A>全部图书：</A></li>
-
-					<c:forEach var="c" items="${categories }">
-						<li><a href="servlet/UIServlet?method=getAll&cid=${c.id }"
-							target="_blank">${c.name } </a></li>
-					</c:forEach>
-					<!-- **************************************************** -->
-				</ul>
-
-			</div>
-			<script type="text/javascript">
-				$("#channels").children().last().attr('class', 'nob');
-			</script>
-			<div class="headBottom">
-
-				<dl style="width: 590px;">
-
-				</dl>
-
-				<ul style="width: 360px;">
-
-
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="yuelanshi">
-		<div class="w950 left">
-			<div class="bb1 yuelanshiList">
-				<div class="path">
-					<h2>${c.name }</h2>
-				</div>
-				<div class="con">
-					<!-- ****************************************************************** -->
-					<c:forEach var="b" items="${pb.list }">
-						<div class="boxListLi5">
-							<div class="img">
-								<a target="_blank" href="front/detail.jsp?id=${b.id }"><img
-									src="img/bookcover/${b.id }.jpg" alt="${b.name }"></a>
-							</div>
-							<h2>
-								<a target="_blank" href="front/detail.jsp?id=${b.id }"
-									title="${b.name }">${b.name }</a>
-							</h2>
-							<div class="other">
-								<span>${b.author } / ${b.pdate }</span>
-
-								<div class="xingxing">
-									<span class="s">评星</span><em></em>
-								</div>
-							</div>
-							<p>${b.description }</p>
-						</div>
-					</c:forEach>
-					<!-- ****************************************************************** -->
-					<c:if test="${pb.totalrecord==0 }">
-						<div align="center">抱歉，没有找到"${name }"相关的结果</div>
-						<br />
-						<br />
-					</c:if>
-					<div id="page">
-						<div id="pagination" style="display: block;">
+                      </div>
+                  
+                      <br>
+                      
+                      <div class="clearfix"> </div>
+</div>
+		<!-- *************************pageSeparate********************* -->
+		<div id="pagination" style="display: block;">
 							<div class="pagination">
 								<span class="current prev"><a href="javascript:void(0)"
 									onclick="gotopage(${pb.previouspage})">上一页</a></span>
@@ -375,149 +138,68 @@ function jump() {
 									class="next">下一页</a>
 							</div>
 						</div>
-						<input type="hidden" name="currentPage" id="currentPage" value="0">
-						<input type="hidden" name="orgCode" id="orgCode" value="1652">
-						<input type="hidden" id="totalSize" value="4606">
-					</div>
-				</div>
-			</div>
+</div>
+</div>
+<script type="text/javascript">
+function gotopage(currentpage) {
+	if (currentpage > ${pb.totalrecord} || currentpage < 1) {
+		alert('wrong input...');
+	} else { 
+		window.location.href = '${pageContext.request.contextPath}/servlet/UIServlet?method=${method}<%=id==null?"":"&cid="+id%>&currentpage='+ currentpage + '&name=${name}';
+		}
+	}
+</script>
+<div class="container"> 
+ <footer id="footer">
+ 	<div id="footer-3d">
+		<div class="gp-container">
+			<span class="first-widget-bend"></span>
+		</div>		
+	</div>
+    <div id="footer-widgets" class="gp-footer-larger-first-col">
+		<div class="gp-container">
+            <div class="footer-widget footer-1">
+            	<div class="wpb_wrapper">
+					<img src="images/f_logo.png" alt="">
+				</div> 
+	          <br>
+	          <p>经过我们不懈努力终于做出了这个网站</p>
+			  <p class="text">仍有许多功能不完善，希望大家多多包涵</p>
+			 </div>
+			 <div class="footer_box">
+			  <div class="col_1_of_3 span_1_of_3">
+					<h3>实用分类</h3>
+					<ul class="first">
+						<li><a href="#">历史记录</a></li>
+						<li><a href="#">快速查询</a></li>
+						<li><a href="#">好书推荐</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>书本信息</h3>
+					<ul class="first">
+						<li><a href="#">新书速递</a></li>
+						<li><a href="#">畅销热书</a></li>
+						<li><a href="#">书本纠错</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>关注我们</h3>
+					<ul class="first">
+						<li><a href="#">微博</a></li>
+						<li><a href="#">微信</a></li>
+						<li><a href="#">qq空间</a></li>
+					</ul>
+					<div class="copy">
+				      <p>欢迎联系湖北大学的我们</p>
+			        </div>
+		     </div>
+		    <div class="clearfix"> </div>
+	        </div>
+	        <div class="clearfix"> </div>
 		</div>
 	</div>
-	<script src="./list_files/jquery.pagination.js" type="text/javascript"></script>
-	<script type="text/javascript">
-	function gotopage(currentpage) {
-		if (currentpage > ${pb.totalrecord} || currentpage < 1) {
-			alert('wrong input...');
-		} else { 
-			window.location.href = '${pageContext.request.contextPath}/servlet/UIServlet?method=${method}<%=id==null?"":"&cid="+id%>&currentpage='+ currentpage + '&name=${name}';
-			}
-		}
-		//评论榜
+  </footer>
+</div>		
 
-		h = '';
-		for (var i = 0; i < listCommentBook.length; i++) {
-			if (i == 0) {
-				h += '<li class="li1 bookJs">'
-						+ '<a href="/book/'+listCommentBook[i].id+'"><img onerror="javascript:this.src=\'http://img.chineseall.cn/bookpic/default.jpg\'" src="http://img.chineseall.cn'+listCommentBook[i].url+'" /></a>'
-						+ '<a href="/book/'+listCommentBook[i].id+'">'
-						+ listCommentBook[i].name + '</a><span>'
-						+ listCommentBook[i].publisher + '</span>' + '<p>'
-						+ listCommentBook[i].intro + '</p></li>';
-			} else {
-				h += '<li>' + '<a href="/book/'+listCommentBook[i].id+'">'
-						+ listCommentBook[i].name + '</a>' + '</li>';
-			}
-		}
-		$('#top_div0').html(h);
-		//阅读榜
-
-		h = '';
-		for (var i = 0; i < listReadBook.length; i++) {
-			if (i == 0) {
-				h += '<li class="li1 bookJs">'
-						+ '<a href="/book/'+listReadBook[i].id+'"><img onerror="javascript:this.src=\'http://img.chineseall.cn/bookpic/default.jpg\'" src="http://img.chineseall.cn'+listReadBook[i].url+'" /></a>'
-						+ '<a href="/book/'+listReadBook[i].id+'">'
-						+ listReadBook[i].name + '</a><span>'
-						+ listReadBook[i].publisher + '</span>' + '<p>'
-						+ listReadBook[i].intro + '</p></li>';
-			} else {
-				h += '<li>' + '<a href="/book/'+listReadBook[i].id+'">'
-						+ listReadBook[i].name + '</a>' + '</li>';
-			}
-		}
-		$('#top_div1').html(h);
-		//收藏榜
-
-		h = '';
-		for (var i = 0; i < listColBook.length; i++) {
-			if (i == 0) {
-				h += '<li class="li1 bookJs">'
-						+ '<a href="/book/'+listColBook[i].id+'"><img onerror="javascript:this.src=\'http://img.chineseall.cn/bookpic/default.jpg\'" src="http://img.chineseall.cn'+listColBook[i].url+'" /></a>'
-						+ '<a href="/book/'+listColBook[i].id+'">'
-						+ listColBook[i].name + '</a><span>'
-						+ listColBook[i].publisher + '</span>' + '<p>'
-						+ listColBook[i].intro + '</p></li>';
-			} else {
-				h += '<li>' + '<a href="/book/'+listColBook[i].id+'">'
-						+ listColBook[i].name + '</a>' + '</li>';
-			}
-		}
-		$('#top_div2').html(h);
-		function selectSort(sortCode) {
-			window.location = '/org/show/sort/' + sortCode + '/0';
-		}
-		function go(page_index) {
-			var url = window.location.pathname;
-			if (url.indexOf("selfsort") > 0) {
-				url = '/org/show/selfsort//' + page_index;
-			} else if (url.indexOf("sort") > 0) {
-				url = '/org/show/sort/I24/' + page_index;
-			} else if (url.indexOf("letter") > 0) {
-				url = '/org/show/letter//' + page_index;
-			} else if (url.indexOf("search") > 0) {
-				url = '/org/show/1652/search/';
-				if ('小说' == '阅览室') {
-					url += 'all';
-				} else {
-					url += $('#searchKey').val();
-				}
-				url += '/' + page_index;
-			}
-			window.location = (url);
-		}
-		$(document)
-				.ready(
-						function() {
-							var totalSize = Number($('#totalSize').val());
-							if (totalSize) {
-								$("#pagination").css('display', 'block');
-								$("#pagination").pagination(
-										totalSize,
-										{
-											items_per_page : 30,
-											current_page : Number($(
-													'#currentPage').val()),
-											prev_text : '上一页',
-											next_text : '下一页',
-											callback : go
-										});
-							}
-							var totalPage = totalSize % 30;
-							if (totalPage == 0) {
-								totalPage = (totalSize / 30) - 1;
-							} else {
-								totalPage = totalSize / 30;
-							}
-							totalPage = Math.floor(totalPage);
-
-							$(".pagination")
-									.prepend(
-											"<a href='javascript:void(0)' onclick='go(0);'>首页</a>");
-							$(".pagination").append(
-									"<a href='javascript:void(0)' onclick='go("
-											+ totalPage + ");'>尾页</a>");
-						})
-	</script>
-
-
-
-
-	<!--#include file="/public/footer.html"-->
-
-	<script type="text/javascript">
-		var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://"
-				: " http://");
-		document
-				.write(unescape("%3Cscript src='"
-						+ _bdhmProtocol
-						+ "hm.baidu.com/h.js%3F961aa2cba564c3f71bfbb0a4cf919ac9' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script src="./list_files/h.js" type="text/javascript"></script>
-
-	<div class="_bd_ext_tip _bd_ext_search_mode"
-		style="visibility: hidden; left: 373px; top: 514px;">
-		<span class="_bd_ext_search">百度一下</span><span class="_bd_ext_open">打开链接</span><span
-			class="_bd_ext_copy">复制</span>
-	</div>
-</body>
-</html>
+</div><div class="_bd_ext_tip _bd_ext_search_mode" style="visibility: hidden; left: 711px; top: 297px;"><span class="_bd_ext_search">百度一下</span><span class="_bd_ext_open">打开链接</span><span class="_bd_ext_copy">复制</span></div></body></html>

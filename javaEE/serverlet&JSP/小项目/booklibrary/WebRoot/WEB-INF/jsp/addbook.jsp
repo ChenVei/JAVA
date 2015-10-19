@@ -53,6 +53,10 @@
 					<td><input type="text" name="pdate" onclick="showCalendar(this.id)" id="pdate"></td>
 				</tr>
 				<tr>
+					<td>publisher</td>
+					<td><input type="text" name="publisher"></td>
+				</tr>
+				<tr>
 					<td>categories</td>
 					<td>
 						<c:forEach var="c" items="${list }">

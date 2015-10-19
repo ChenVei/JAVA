@@ -80,7 +80,7 @@ public class BookServlet extends HttpServlet {
 		QueryInfo qi = WebUtils.request2Bean(request, QueryInfo.class);
 		qi.setQueryString(name);
 		
-		BusinessServiceImpl bsi = new BusinessServiceImpl();
+		BusinessService bsi = new BusinessServiceImpl();
 		PageBean<Book> pb = bsi.querySpecficBook(qi);
 		request.setAttribute("pb", pb);
 		
@@ -222,7 +222,7 @@ public class BookServlet extends HttpServlet {
 			byte[] b = new byte[1024];
 			int len = 0;
 			while ((len = is.read(b)) > 0) {
-				fos.write(b);
+				fos.write(b, 0, len);
 			}
 			fos.close();
 			is.close();

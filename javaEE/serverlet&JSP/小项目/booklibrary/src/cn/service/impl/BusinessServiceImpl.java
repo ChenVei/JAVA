@@ -4,20 +4,29 @@ import java.util.List;
 
 import cn.dao.BookDao;
 import cn.dao.CategoryDao;
+import cn.dao.UserDao;
 import cn.dao.impl.BookDaoImpl;
 import cn.dao.impl.CategoryDaoImpl;
+import cn.dao.impl.NewsDaoImpl;
+import cn.dao.impl.UserDaoImpl;
 import cn.domain.Book;
 import cn.domain.Category;
+import cn.domain.News;
 import cn.domain.PageBean;
 import cn.domain.QueryInfo;
 import cn.domain.QueryResult;
+import cn.domain.User;
 import cn.service.BusinessService;
 
 public class BusinessServiceImpl implements BusinessService {
 	
 	CategoryDao cdao = new CategoryDaoImpl();
 	BookDao bdao = new BookDaoImpl();
-	
+	UserDao udao = new UserDaoImpl();
+	NewsDaoImpl nd = new NewsDaoImpl();
+	/**************************************
+	 * Category
+	 ***************************************/
 	@Override
 	public void addCategory(Category c) {
 		cdao.add(c);
@@ -38,6 +47,9 @@ public class BusinessServiceImpl implements BusinessService {
 		return cdao.getAll();
 	}
 
+	/**************************************
+	 * Book
+	 ***************************************/
 	@Override
 	public void addBook(Book b) {
 		bdao.add(b);
@@ -96,4 +108,60 @@ public class BusinessServiceImpl implements BusinessService {
 		return pb;
 	}
 	
+	/**************************************
+	 * User
+	 ***************************************/
+	public void addUser(User u) {
+		udao.add(u);
+	}
+	
+	public void deleteUser(int id) {
+		udao.delete(id);
+	}
+	
+	public void updateUser(User u) {
+		udao.add(u);
+	}
+	
+	public User find(int id) {
+		return udao.find(id);
+	}
+	
+	public User find(String username, String password) {
+		return udao.find(username, password);
+	}
+
+	public void delete(int id) {
+		udao.delete(id);
+	}
+
+	public void update(User u) {
+		udao.update(u);
+	}
+	public List<User> getAllUsers() {
+		return udao.getAll();
+	}
+	
+	/**************************************
+	 * News
+	 ***************************************/
+	public int addNews(News n) {
+		return nd.add(n);
+	}
+	
+	public void deleteNews(int id) {
+		nd.delete(id);
+	}
+	
+	public void updateNews(News n) {
+		nd.update(n);
+	}
+	
+	public News findNews(int id) {
+		return nd.find(id);
+	}
+	
+	public List<News> getAllNews() {
+		return nd.getAll();
+	}
 }

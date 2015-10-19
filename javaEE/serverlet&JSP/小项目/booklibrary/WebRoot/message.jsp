@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 >${requestScope.message }</h1>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<div align="center"><h1 >${requestScope.message }</h1></div>
+	
 </body>
 </html>

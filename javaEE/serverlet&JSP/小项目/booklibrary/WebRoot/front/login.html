@@ -1,0 +1,166 @@
+﻿<html><head>
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="Movie_store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+<!-- start plugins -->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<link href="http://fonts.useso.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+
+
+ <script language="javascript" type="text/javascript">
+    function checkEmail() {
+       
+        var femail = document.getElementById("adminName");
+        var ftemail = document.getElementById("sadminName");
+        if (femail.value == "") {
+            ftemail.className = "frred";
+            ftemail.innerHTML ="<font color='red'>× 用户名不能为空！</font>";
+        }
+        else {
+           
+                ftemail.className = "fgren";
+                ftemail.innerHTML = "";
+           
+         
+        }
+    }
+
+    function isPasswd() {
+        var fpwd = document.getElementById("password");
+        var ftpwd = document.getElementById("spassword");
+        if (fpwd.value == "" || fpwd.value.length < 6 || fpwd.value.length > 20) {
+            ftpwd.className = "frred";
+            ftpwd.innerHTML = "<font color='red'>× 请输入6-20位用户密码！</font>";
+        }
+        else {
+            ftpwd.className = "fgren";
+            ftpwd.innerHTML = "";
+        }
+    }
+    </script> 
+
+</head>
+<body>
+<div class="container">
+	<div class="container_wrap">
+		<div class="header_top">
+		    <div class="col-sm-3 logo"><a href="#"><img src="images/logo.jpg" alt=""></a></div>
+		    <div class="col-sm-6 nav">
+			  <ul>
+				 <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="人文"><a href="人文.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="科技"><a href="科技.html"> </a> </span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="历史"><a href="历史.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="小说"><a href="小说.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="生活"><a href="生活.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="教育"><a href="教育.html"> </a></span></li>
+			 </ul>
+			</div>
+			<div class="col-sm-3 header_right">
+			   <ul class="header_right_box">
+	
+				<span class="simptip-position-bottom simptip-movable" data-tooltip="登录"><a href="login.html"> <li class="last"><i class="edit"></i></li></a></span>
+				 <div class="clearfix"> </div>
+			   </ul>
+			</div>
+			<div class="clearfix"> </div>
+	      </div>
+	      <div class="content">
+      	     <div class="register">
+			   <div class="col-md-6 login-left">
+			
+				
+				 <a class="acount-btn" href="register.html">注册新用户</a>
+			   </div>
+			   <div class="col-md-6 login-right">
+			  	<h3>用户登录</h3>
+				
+				<form name="search" method="post" action="../servlet/UserServlet?method=login">
+				  <div>
+					<span>用户名<label>*</label></span>
+	
+				
+
+					<input type="text" name="username" id="adminName" onblur="checkEmail()" size="35" style="width:292px;"> 
+                   	  <span id="sadminName" class="frbule">请输入用户名</span>
+                   	  
+				  </div>
+				  <div>
+					<span>密码<label>*</label></span>
+					<input type="password" name="password" id="password" onblur="isPasswd()" size="35" style="width:289px;"> 
+                    <span id="spassword" class="frbule">请输入密码</span>
+				  </div>
+                
+                  <div>
+				  
+				 <input type="submit" value="登录">
+                  </div>
+			    </form>
+			   </div>	
+			   <div class="clearfix"> </div>
+		     </div>
+           </div>
+    </div>
+</div>
+
+
+
+<div class="container"> 
+ <footer id="footer">
+ 	<div id="footer-3d">
+		<div class="gp-container">
+			<span class="first-widget-bend"> </span>
+		</div>		
+	</div>
+    <div id="footer-widgets" class="gp-footer-larger-first-col">
+		<div class="gp-container">
+            <div class="footer-widget footer-1">
+            	<div class="wpb_wrapper">
+					<img src="images/f_logo.png" alt="">
+				</div> 
+	          <br>
+	          <p>经过我们不懈努力终于做出了这个网站</p>
+			  <p class="text">仍有许多功能不完善，希望大家多多包涵</p>
+			 </div>
+			 <div class="footer_box">
+			  <div class="col_1_of_3 span_1_of_3">
+					<h3>实用分类</h3>
+					<ul class="first">
+						<li><a href="#">历史记录</a></li>
+						<li><a href="#">快速查询</a></li>
+						<li><a href="#">好书推荐</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>书本信息</h3>
+					<ul class="first">
+						<li><a href="#">新书速递</a></li>
+						<li><a href="#">畅销热书</a></li>
+						<li><a href="#">书本纠错</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>关注我们</h3>
+					<ul class="first">
+						<li><a href="#">微博</a></li>
+						<li><a href="#">微信</a></li>
+						<li><a href="#">qq空间</a></li>
+					</ul>
+					<div class="copy">
+				      <p>欢迎联系湖北大学的我们</p>
+			        </div>
+		     </div>
+		    <div class="clearfix"> </div>
+	        </div>
+	        <div class="clearfix"> </div>
+		</div>
+	</div>
+  </footer>
+</div>		
+
+<div class="_bd_ext_tip" style="visibility: hidden;"><span class="_bd_ext_search">百度一下</span><span class="_bd_ext_open">打开链接</span><span class="_bd_ext_copy">复制</span></div></body></html>

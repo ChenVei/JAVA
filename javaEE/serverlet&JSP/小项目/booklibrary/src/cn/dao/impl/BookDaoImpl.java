@@ -15,9 +15,9 @@ public class BookDaoImpl implements BookDao {
 	
 	@Override
 	public int add(Book b) {
-		String sql = "insert into book(name,description,author,pdate) values(?,?,?,?)";
+		String sql = "insert into book(name,description,author,pdate,publisher) values(?,?,?,?,?)";
 		Object[] params = { b.getName(), b.getDescription(), b.getAuthor(),
-				b.getPdate() };
+				b.getPdate(), b.getPublisher() };
 		int bid = JdbcUtils.update(sql, params);
 
 		for (Category c : b.getCategories()) {
@@ -29,9 +29,9 @@ public class BookDaoImpl implements BookDao {
 	}
 	
 	public int add(Book b, String[] ids) {
-		String sql = "insert into book(name,description,author,pdate) values(?,?,?,?)";
+		String sql = "insert into book(name,description,author,pdate,publisher) values(?,?,?,?,?)";
 		Object[] params = { b.getName(), b.getDescription(), b.getAuthor(),
-				b.getPdate() };
+				b.getPdate(), b.getPublisher()};
 		int bid = JdbcUtils.update(sql, params);
 		
 		for (String cid: ids) {
@@ -55,9 +55,9 @@ public class BookDaoImpl implements BookDao {
 
 	@Override
 	public void update(Book b) {
-		String sql = "update book set name=?,description=?,author=?,pdate=? where id=?";
+		String sql = "update book set name=?,description=?,author=?,pdate=?, publisher=? where id=?";
 		Object[] params = { b.getName(), b.getDescription(), b.getAuthor(),
-				b.getPdate(), b.getId() };
+				b.getPdate(), b.getPublisher(), b.getId()};
 		JdbcUtils.update(sql, params);
 	}
 
@@ -102,8 +102,8 @@ public class BookDaoImpl implements BookDao {
 	
 	@Override
 	public List<Book> find(String name) {
-		String sql = "select * from book where name like ? or author like ? or description like ?";
-		Object[] params = {'%'+name+'%', '%'+name+'%', '%'+name+'%'};
+		String sql = "select * from book where name like ? or author like ? or description like ? or publisher like ?";
+		Object[] params = {'%'+name+'%', '%'+name+'%', '%'+name+'%', '%'+name+'%'};
 		List<Book> books = (List<Book>) JdbcUtils.find(sql, params, new BeanListHandler<Book>(Book.class));
 		for (Book book : books) {
 			sql = "select c.* from category_book cb, category c where cb.bid=? and c.id=cb.cid";
@@ -139,8 +139,8 @@ public class BookDaoImpl implements BookDao {
 	public QueryResult<Book> querySpecific(QueryInfo qi) {
 		String name = qi.getQueryString();
 		QueryResult<Book> qr = new QueryResult<Book>();
-		String sql = "select * from book where name like ? or author like ? or description like ? limit ?,?";
-		Object[] params = {'%'+name+'%', '%'+name+'%', '%'+name+'%', qi.getStartindex(), qi.getPagesize()};
+		String sql = "select * from book where name like ? or author like ? or description like ? or publisher like ? limit ?,?";
+		Object[] params = {'%'+name+'%', '%'+name+'%', '%'+name+'%', '%'+name+'%', qi.getStartindex(), qi.getPagesize()};
 		List<Book> books = (List<Book>) JdbcUtils.find(sql, params, new BeanListHandler<Book>(Book.class));
 		for (Book book : books) {
 			sql = "select c.* from category_book cb, category c where cb.bid=? and c.id=cb.cid";
@@ -148,13 +148,12 @@ public class BookDaoImpl implements BookDao {
 			List<Category> list = (List<Category>) JdbcUtils.find(sql, params, new BeanListHandler<Category>(Category.class));
 			book.setCategories(list);
 		}
-		sql = "select count(*) from book where name like ? or author like ? or description like ?";
-		params = new Object[]{'%'+name+'%', '%'+name+'%', '%'+name+'%'};
+		sql = "select count(*) from book where name like ? or author like ? or description like ? or publisher like ?";
+		params = new Object[]{'%'+name+'%', '%'+name+'%', '%'+name+'%', '%'+name+'%'};
 		int totalrecord = JdbcUtils.getTotalRecords(sql, params);
 		
 		qr.setList(books);
 		qr.setTotalrecord(totalrecord);
 		return qr;
 	}
-	
 }

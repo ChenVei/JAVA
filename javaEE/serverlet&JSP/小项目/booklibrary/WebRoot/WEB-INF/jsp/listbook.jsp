@@ -27,6 +27,7 @@
 				<th>作者</th>
 				<th>出版日期</th>
 				<th>类别</th>
+				<th>出版社</th>
 				<th colspan="2">操作</th>
 			</tr>
 			<c:forEach var="b" items="${requestScope.pb.list }">
@@ -41,6 +42,7 @@
 							${c.name }
 						</c:forEach>
 					</td>
+					<td>${b.publisher }</td>
 					<td><a href="${pageContext.request.contextPath}/servlet/BookServlet?method=updateBookUI&id=${b.id}">update</a></td>
 					<td><a href="${pageContext.request.contextPath}/servlet/BookServlet?method=delBook&id=${b.id}">del</a></td>
 				</tr>
